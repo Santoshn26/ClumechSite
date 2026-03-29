@@ -21,16 +21,16 @@ export interface Props {
 }
 
 const links: NavLink[] = [
-  { label: "Products", href: "/products" },
-  { label: "Systems", href: "/systems" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" }
+  { label: "Products",   href: "/products" },
+  { label: "Industries", href: "/industries" },
+  { label: "Work",       href: "/work" },
+  { label: "About",      href: "/about" },
+  { label: "Contact",    href: "/contact" }
 ];
 
 const {
-  ctaText = "Request Demo",
-  ctaLink = "/demo"
+  ctaText = "Request a Quote",
+  ctaLink = "/contact"
 } = Astro.props;
 ---
 
