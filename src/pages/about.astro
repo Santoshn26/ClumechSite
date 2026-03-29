@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroSection from '@/components/HeroSection.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
 import SystemCard from '@/components/SystemCard.astro';
+import StepProcess from '@/components/StepProcess.astro';
 
 const seo = {
   title: "About Us | Clumech LLP",
@@ -43,7 +44,50 @@ const seo = {
       </div>
     </div>
   </section>
-
+  <!-- 3. Our Process -->
+  <section class="py-16 md:py-24 bg-light-bg text-slate-900 border-y border-slate-200">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="font-heading text-label uppercase text-slate-500 mb-4">— HOW WE WORK</p>
+        <h2 class="font-heading text-h2">The Clumech Method</h2>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 md:gap-4 justify-between">
+        <div class="reveal">
+          <StepProcess 
+            onLightBg={true} 
+            stepNumber="1" 
+            title="Technical Review" 
+            description="Our engineers review your drawings or facility requirements to ensure 100% compatibility."
+          />
+        </div>
+        <div class="reveal delay-100">
+          <StepProcess 
+            onLightBg={true} 
+            stepNumber="2" 
+            title="Precision Quote" 
+            description="Receive a transparent, line-item quote covering fabrication, materials, and delivery timelines."
+          />
+        </div>
+        <div class="reveal delay-200">
+          <StepProcess 
+            onLightBg={true} 
+            stepNumber="3" 
+            title="Quality Production" 
+            description="Manufacturing or sourcing begins with internal quality gates at every critical stage."
+          />
+        </div>
+        <div class="reveal delay-300">
+          <StepProcess 
+            onLightBg={true} 
+            stepNumber="4" 
+            title="Verified Delivery" 
+            description="Final inspection certificate issued and components delivered to your floor, ready for use." 
+            isLast={true}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- 3. Leadership Team -->
   <section id="leadership" class="py-16 md:py-24 bg-brand-surface">
     <div class="max-w-[1200px] mx-auto px-6">
@@ -57,7 +101,7 @@ const seo = {
         <!-- Mr. Sameer Sondur -->
         <div class="reveal hover-lift flex flex-col items-center p-6 rounded-2xl bg-brand-card border border-brand-border shadow-sm">
           <div class="relative mb-4">
-            <div class="w-14 h-14 bg-accent-orange rounded-full flex items-center justify-center text-white font-mono font-bold text-lg">SS</div>
+            <img class="w-24 h-24 rounded-full object-cover border-2 border-brand-border" src="/images/sameer-sondur.jpg" alt="Mr. Sameer Sondur">
             <span class="absolute -bottom-2 right-0 text-xs bg-brand-surface text-slate-400 px-2 py-0.5 rounded-full border border-brand-border">Pune</span>
           </div>
           <h3 class="font-heading text-lg font-semibold text-white">Mr. Sameer Sondur</h3>
@@ -67,7 +111,7 @@ const seo = {
         <!-- Mr. Prasannakumar Burli -->
         <div class="reveal delay-100 hover-lift flex flex-col items-center p-6 rounded-2xl bg-brand-card border border-brand-border shadow-sm">
           <div class="relative mb-4">
-            <div class="w-14 h-14 bg-accent-orange rounded-full flex items-center justify-center text-white font-mono font-bold text-lg">PB</div>
+            <img class="w-24 h-24 rounded-full object-cover border-2 border-brand-border" src="/images/prasannakumar-burli.jpg" alt="Mr. Prasannakumar Burli">
             <span class="absolute -bottom-2 right-0 text-xs bg-brand-surface text-slate-400 px-2 py-0.5 rounded-full border border-brand-border">Bengaluru</span>
           </div>
           <h3 class="font-heading text-lg font-semibold text-white">Mr. Prasannakumar Burli</h3>
@@ -77,7 +121,7 @@ const seo = {
         <!-- Mr. Subash C.S. -->
         <div class="reveal delay-200 hover-lift flex flex-col items-center p-6 rounded-2xl bg-brand-card border border-brand-border shadow-sm">
           <div class="relative mb-4">
-            <div class="w-14 h-14 bg-accent-orange rounded-full flex items-center justify-center text-white font-mono font-bold text-lg">SC</div>
+            <img class="w-24 h-24 rounded-full object-cover border-2 border-brand-border" src="/images/subash-cs.jpg" alt="Mr. Subash C.S.">
             <span class="absolute -bottom-2 right-0 text-xs bg-brand-surface text-slate-400 px-2 py-0.5 rounded-full border border-brand-border">Bengaluru</span>
           </div>
           <h3 class="font-heading text-lg font-semibold text-white">Mr. Subash C.S.</h3>

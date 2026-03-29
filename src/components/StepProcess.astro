@@ -1,31 +1,36 @@
 ---
 // src/components/StepProcess.astro
-
-interface Props {
-  stepNumber: number | string;
+export interface Props {
+  stepNumber: string;
   title: string;
   description: string;
-  isLast?: boolean; // To prevent drawing a line after the final step
+  onLightBg?: boolean;
+  isLast?: boolean; // Prop for potential connector line logic
 }
 
-const { 
-  stepNumber, 
-  title, 
-  description,
-  isLast = false 
-} = Astro.props;
+const { stepNumber, title, description, onLightBg = false, isLast = false } = Astro.props;
+
+// Conditionally set text colors based on the background
+const titleColor = onLightBg ? 'text-slate-900' : 'text-white';
+const textColor = onLightBg ? 'text-slate-700' : 'text-slate-300';
+const borderColor = onLightBg ? 'border-slate-300' : 'border-brand-border';
+const numberColor = onLightBg ? 'text-slate-500' : 'text-slate-400';
+const connectorColor = onLightBg ? 'border-slate-300' : 'border-brand-border';
 ---
 
-<div class="relative pl-16 md:pl-0 md:pt-20 md:flex-1">
-  <!-- Connector Line (Desktop) -->
-  {!isLast && <div class="hidden md:block absolute top-6 left-1/2 w-1/2 h-px border-t border-dashed border-brand-border"></div>}
-  {!isLast && <div class="hidden md:block absolute top-6 right-1/2 w-1/2 h-px border-t border-dashed border-brand-border"></div>}
-  <!-- Connector Line (Mobile) -->
-  {!isLast && <div class="block md:hidden absolute top-14 left-6 bottom-0 w-px border-l border-dashed border-brand-border -mb-8 z-0"></div>}
-
-  <div class="absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full border-2 border-accent-orange text-accent-orange font-mono font-bold flex items-center justify-center bg-brand-surface z-10 text-lg">
+<div class="relative flex-1 text-center md:text-left">
+  <div class:list={["flex items-center justify-center w-12 h-12 rounded-full border-2 font-mono font-bold text-lg mb-4 mx-auto md:mx-0", borderColor, numberColor]}>
     {stepNumber}
   </div>
-  <h4 class="font-heading text-xl font-bold text-brand-bright mb-2">{title}</h4>
-  <p class="text-brand-text text-sm">{description}</p>
+  <h3 class:list={["font-heading font-semibold text-xl mb-2", titleColor]}>{title}</h3>
+  <p class:list={["max-w-xs mx-auto md:mx-0", textColor]}>{description}</p>
+
+  <!-- Connector line for desktop -->
+  { !isLast && 
+    <div class:list={["hidden md:block absolute top-6 w-full border-t-2 border-dashed", connectorColor]} style="left: 3.5rem; width: calc(100% - 3.5rem);"></div>
+  }
+  <!-- Connector line for mobile -->
+  { !isLast &&
+    <div class:list={["md:hidden absolute top-12 left-1/2 h-full border-l-2 border-dashed -translate-x-1/2", connectorColor]} style="height: calc(100% + 2rem);"></div>
+  }
 </div>
