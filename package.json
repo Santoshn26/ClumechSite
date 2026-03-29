@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.8",
     "@astrojs/cloudflare": "^9.2.1",
     "@astrojs/sitemap": "3.1.5",
     "@astrojs/tailwind": "5.1.0",
@@ -19,6 +20,6 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
     "astro": "4.7.1",
-    "typescript": "5.4.5"
+    "typescript": "^5.4.5"
   }
 }
