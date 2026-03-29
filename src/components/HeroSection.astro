@@ -1,0 +1,55 @@
+---
+// src/components/HeroSection.astro
+
+export interface Props {
+  badgeText?: string;
+  title: string;
+  subtitle: string;
+  primaryCtaText?: string;
+  primaryCtaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+}
+
+const {
+  badgeText,
+  title,
+  subtitle,
+  primaryCtaText,
+  primaryCtaLink,
+  secondaryCtaText,
+  secondaryCtaLink
+} = Astro.props;
+---
+
+<section class="relative grid-background flex flex-col items-center text-center overflow-hidden border-b border-brand-border">
+  <div class="max-w-[1200px] mx-auto px-6 w-full py-24 md:py-32 reveal">
+  {badgeText && (
+    <span class="font-heading text-label uppercase text-accent-orange mb-6">
+      {badgeText}
+    </span>
+  )}
+  <h1 class="font-heading text-h1 md:text-display gradient-text max-w-4xl mb-6">
+    {title}
+  </h1>
+  <p class="text-lg md:text-xl text-brand-text max-w-3xl mb-10 leading-relaxed">{subtitle}</p>
+  <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+    {primaryCtaText && primaryCtaLink && (
+      <a 
+        href={primaryCtaLink} 
+        class="bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-cta-orange hover:shadow-glow-orange-lg transition-all duration-300"
+        data-ga-cta={primaryCtaText}
+        data-ga-location="Hero"
+      >{primaryCtaText}</a>
+    )}
+    {secondaryCtaText && secondaryCtaLink && (
+      <a 
+        href={secondaryCtaLink} 
+        class="border border-brand-border hover:border-accent-orange/50 text-brand-text hover:text-brand-bright bg-transparent hover:bg-brand-card/50 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200"
+        data-ga-cta={secondaryCtaText}
+        data-ga-location="Hero"
+      >{secondaryCtaText}</a>
+    )}
+  </div>
+  </div>
+</section>

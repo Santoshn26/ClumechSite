@@ -1,0 +1,27 @@
+---
+// src/components/ServiceCard.astro
+
+export interface Props {
+  title: string;
+  description: string;
+  iconEmoji?: string;
+}
+
+const { 
+  title, 
+  description, 
+  iconEmoji = "⚡" 
+} = Astro.props;
+---
+
+<div class="group bg-brand-card/80 p-8 rounded-2xl border border-white/10 backdrop-blur-lg shadow-lg shadow-black/20 transition-all duration-300 relative overflow-hidden hover:-translate-y-1 hover:shadow-lift">
+  <div class="w-12 h-12 bg-brand-surface rounded-xl flex items-center justify-center text-2xl mb-6 border border-brand-border group-hover:border-accent-orange/50 transition-colors">
+    {iconEmoji}
+  </div>
+  <h3 class="font-heading text-h3 text-brand-bright mb-3">
+    {title}
+  </h3>
+  <p class="text-brand-text leading-relaxed text-base">
+    {description}
+  </p>
+</div>

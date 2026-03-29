@@ -1,0 +1,31 @@
+---
+// src/components/StepProcess.astro
+
+interface Props {
+  stepNumber: number | string;
+  title: string;
+  description: string;
+  isLast?: boolean; // To prevent drawing a line after the final step
+}
+
+const { 
+  stepNumber, 
+  title, 
+  description,
+  isLast = false 
+} = Astro.props;
+---
+
+<div class="relative pl-16 md:pl-0 md:pt-20 md:flex-1">
+  <!-- Connector Line (Desktop) -->
+  {!isLast && <div class="hidden md:block absolute top-6 left-1/2 w-1/2 h-px border-t border-dashed border-brand-border"></div>}
+  {!isLast && <div class="hidden md:block absolute top-6 right-1/2 w-1/2 h-px border-t border-dashed border-brand-border"></div>}
+  <!-- Connector Line (Mobile) -->
+  {!isLast && <div class="block md:hidden absolute top-14 left-6 bottom-0 w-px border-l border-dashed border-brand-border -mb-8 z-0"></div>}
+
+  <div class="absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full border-2 border-accent-orange text-accent-orange font-mono font-bold flex items-center justify-center bg-brand-surface z-10 text-lg">
+    {stepNumber}
+  </div>
+  <h4 class="font-heading text-xl font-bold text-brand-bright mb-2">{title}</h4>
+  <p class="text-brand-text text-sm">{description}</p>
+</div>

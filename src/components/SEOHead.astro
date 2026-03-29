@@ -1,0 +1,90 @@
+---
+// src/components/SEOHead.astro
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishDate?: string;
+  modifiedDate?: string; // For updated articles
+}
+
+const {
+  title,
+  description,
+  canonicalURL = Astro.url.href,
+  image = '/default-og.jpg',
+  type = 'website',
+  publishDate, // Expects ISO 8601 format e.g., "2025-10-22T10:00:00Z"
+  modifiedDate,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString() || 'https://clumech.com';
+
+// Base Organization Schema as requested
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Clumech LLP",
+  "url": siteUrl,
+  "logo": new URL('/logo.png', siteUrl).toString(), // Assumes logo.png is in /public
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-9845349735",
+    "contactType": "sales"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bengaluru",
+    "addressCountry": "IN"
+  }
+}
+
+// Page-specific schema (Article or WebSite)
+const pageSchema = type === 'article' ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": new URL(image, siteUrl).toString(),
+  "author": { "@type": "Organization", "name": "Clumech LLP" },
+  "publisher": { "@type": "Organization", "name": "Clumech LLP", "logo": { "@type": "ImageObject", "url": new URL('/logo.png', siteUrl).toString() } },
+  ...(publishDate && { "datePublished": publishDate }),
+  ...(modifiedDate && { "dateModified": modifiedDate }),
+} : {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": title,
+  "description": description,
+  "url": canonicalURL,
+  "publisher": { "@type": "Organization", "name": "Clumech LLP" },
+}
+---
+
+<!-- Primary Meta Tags -->
+<title>{title} | Clumech LLP</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url.origin)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url.origin)} />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify([
+  organizationSchema,
+  pageSchema
+])} />

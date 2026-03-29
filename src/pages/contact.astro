@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroSection from '@/components/HeroSection.astro';
+
+// The Formspree endpoint is pulled from your .env file
+const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+
+const seo = {
+  title: "Contact Us | Clumech LLP",
+  description: "Get in touch with our sales or engineering teams to schedule a demo, request a quote, or discuss your operational challenges."
+};
+---
+
+<BaseLayout seo={seo}>
+  <HeroSection 
+    badgeText="Get in Touch"
+    title="Contact Our Team"
+    subtitle="Whether you have a question about features, pricing, or anything else, our team is ready to answer all your questions."
+  />
+
+  <section class="py-16 md:py-24 bg-light-bg text-light-text">
+    <div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-16">
+      
+      <!-- Left Column: Details & Map -->
+      <div class="space-y-12 reveal-left">
+        <div>
+          <h2 class="font-heading text-h2 text-slate-900 mb-4">Contact Information</h2>
+          <div class="space-y-4 text-slate-700">
+            <p><strong>Email:</strong> <a href="mailto:info@clumech.com" class="text-brand-accent hover:underline">info@clumech.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919886091042" class="text-brand-accent hover:underline">+91 9886091042</a></p>
+            <p><strong>Address:</strong><br/>F-6, No 21/1, Aradhya complex,<br/>Vani vilas Raod, Basavanagudi,<br/>Bangalore – 560004 India</p>
+          </div>
+        </div>
+        <div>
+          <h2 class="font-heading text-h2 text-slate-900 mb-4">Our Headquarters</h2>
+          <div class="aspect-video rounded-2xl overflow-hidden border border-light-border shadow-sm">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5219.928803597539!2d77.571669!3d12.948417599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3fb78818cbed%3A0x81d8cafee0ddcbf8!2sCLUMECH%20LLP!5e1!3m2!1sen!2sin!4v1774780342049!5m2!1sen!2sin" 
+              class="w-full h-full"
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Form -->
+      <div class="bg-light-card p-8 md:p-10 rounded-2xl border border-light-border shadow-lg reveal" style="transition-delay: 150ms">
+        <h2 class="font-heading text-h2 text-light-text mb-6">Send us a Message</h2>
+        
+        <form id="contact-form" action={formspreeEndpoint} method="POST" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-light-muted mb-1.5">Full Name</label>
+              <input type="text" name="name" id="name" required class="form-input" placeholder="John Doe" />
+            </div>
+            <div>
+              <label for="company" class="block text-sm font-medium text-light-muted mb-1.5">Company</label>
+              <input type="text" name="company" id="company" class="form-input" placeholder="Acme Inc." />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="email" class="block text-sm font-medium text-light-muted mb-1.5">Email Address</label>
+              <input type="email" name="email" id="email" required class="form-input" placeholder="john@acme.com" />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-light-muted mb-1.5">Phone Number</label>
+              <input type="tel" name="phone" id="phone" class="form-input" placeholder="+91 99999 99999" />
+            </div>
+          </div>
+          <div>
+            <label for="requirement" class="block text-sm font-medium text-light-muted mb-1.5">Primary Requirement</label>
+            <select id="requirement" name="requirement" required class="form-input">
+              <option value="" disabled selected>Please select an option</option>
+              <option value="Platform Demo">Platform Demo</option>
+              <option value="Sales Inquiry">Sales Inquiry</option>
+              <option value="Technical Support">Technical Support</option>
+              <option value="Partnership">Partnership</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-light-muted mb-1.5">Message</label>
+            <textarea name="message" id="message" rows="5" required class="form-input" placeholder="How can we help you?"></textarea>
+          </div>
+          
+          <div id="form-status"></div>
+
+          <div>
+            <button type="submit" id="submit-btn" class="w-full bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold py-3 rounded-xl transition-all duration-200 shadow-cta-orange hover:shadow-glow-orange-lg flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed">
+              <span id="submit-btn-text">Send Message</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .form-input {
+    @apply w-full px-4 py-2.5 border border-light-border rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange outline-none transition-all bg-light-bg;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const statusContainer = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitBtnText = document.getElementById('submit-btn-text');
+
+    if (!statusContainer || !submitBtn || !submitBtnText) return;
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      
+      submitBtn.disabled = true;
+      submitBtnText.innerText = 'Sending...';
+      statusContainer.innerHTML = '';
+
+      const data = new FormData(event.target);
+      
+      try {
+        const response = await fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          statusContainer.innerHTML = '<div class="p-4 mt-4 text-sm text-green-800 rounded-lg bg-green-100" role="alert">Thank you for your message! We will get back to you shortly.</div>';
+          form.reset();
+        } else {
+          const responseData = await response.json();
+          if (Object.hasOwn(responseData, 'errors')) {
+            const errorText = responseData["errors"].map(error => error["message"]).join(", ");
+            throw new Error(errorText);
+          } else {
+            throw new Error('Oops! There was a problem submitting your form.');
+          }
+        }
+      } catch (error) {
+        statusContainer.innerHTML = `<div class="p-4 mt-4 text-sm text-red-800 rounded-lg bg-red-100" role="alert">${error.message || 'Oops! There was a problem submitting your form.'}</div>`;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtnText.innerText = 'Send Message';
+      }
+    }
+
+    form.addEventListener("submit", handleSubmit);
+  });
+</script>

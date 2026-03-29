@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const seo = {
+  title: "Request a Demo",
+  description: "Book a free demo of our AppSheet and Google Workspace operational systems."
+};
+---
+<BaseLayout seo={seo}>
+  <section class="min-h-[70vh] bg-brand-surface flex items-center justify-center">
+    <div class="text-center reveal">
+      <p class="font-heading text-label uppercase text-accent-orange mb-4">Book a Demo</p>
+      <h1 class="font-heading text-h1 gradient-text mb-6">
+        Let's Talk
+      </h1>
+      <p class="text-brand-text max-w-lg mx-auto mb-8">
+        All demos are scheduled through our main contact form. Please fill in your details and we'll get back to you within 24 hours to schedule a call.
+      </p>
+      <a href="/contact" class="bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-cta-orange hover:shadow-glow-orange-lg">
+        Go to Contact Form
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,119 @@
+---
+// src/components/DashboardMockup.astro
+
+interface KPI {
+  label: string;
+  value: string;
+  trend: string;
+  isPositive: boolean;
+}
+
+interface TableRow {
+  id: string;
+  customer: string;
+  amount: string;
+  status: 'Active' | 'Pending' | 'Overdue';
+}
+
+interface Props {
+  kpis?: KPI[];
+  tableData?: TableRow[];
+}
+
+const {
+  kpis = [
+    { label: "Revenue", value: "$405k", trend: "+20.1%", isPositive: true },
+    { label: "OEE", value: "81.2%", trend: "-1.2%", isPositive: false },
+    { label: "On-Time", value: "94.6%", trend: "+3.4%", isPositive: true }
+  ],
+  tableData = [
+    { id: "ORD-0845", customer: "Stellantis", amount: "$82,400", status: "Active" },
+    { id: "ORD-0844", customer: "Maersk", amount: "$12,100", status: "Active" },
+    { id: "ORD-0842", customer: "Caterpillar", amount: "$210,900", status: "Pending" },
+    { id: "ORD-0839", customer: "Georgia-Pacific", amount: "$4,800", status: "Overdue" }
+  ]
+} = Astro.props;
+
+// Helper function to assign Tailwind classes based on status
+const getStatusClasses = (status: TableRow['status']) => {
+  switch (status) {
+    case 'Active': return 'bg-green-500/10 text-green-400 border-green-500/20';
+    case 'Pending': return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
+    case 'Overdue': return 'bg-red-500/10 text-red-400 border-red-500/20';
+    default: return 'bg-slate-500/10 text-slate-400 border-slate-500/20';
+  }
+};
+---
+
+<div class="bg-brand-surface border border-brand-border rounded-2xl shadow-2xl shadow-black/20 overflow-hidden max-w-5xl mx-auto w-full font-body shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+  
+  <!-- Mockup Header -->
+  <div class="border-b border-brand-border px-6 py-3 flex items-center gap-2">
+    <div class="flex gap-1.5">
+      <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+    </div>
+    <div class="mx-auto text-xs font-mono text-brand-muted">app.clumech.com/overview</div>
+  </div>
+
+  <div class="p-6 md:p-8">
+    <!-- KPIs -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+      {kpis.map(kpi => (
+        <div class="bg-brand-navy p-5 rounded-lg border border-brand-border">
+          <p class="font-mono text-xs text-brand-muted uppercase tracking-wider mb-2">{kpi.label}</p>
+          <div class="flex items-baseline justify-between gap-2">
+            <h4 class="text-2xl font-bold text-brand-bright font-mono">{kpi.value}</h4>
+            <span class={`text-xs font-mono ${kpi.isPositive ? 'text-green-400' : 'text-red-400'}`}>
+              {kpi.trend}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Data Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead>
+          <tr class="text-xs uppercase tracking-wider font-mono text-brand-muted">
+            <th class="px-4 py-3 font-medium">Order ID</th>
+            <th class="px-4 py-3 font-medium">Customer</th>
+            <th class="px-4 py-3 font-medium">Amount</th>
+            <th class="px-4 py-3 font-medium text-right">Status</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm text-brand-text">
+          {tableData.map((row, index) => (
+            <tr 
+              class="border-t border-brand-border hover:bg-brand-border/10 transition-colors table-row"
+              style={`--delay: ${index * 0.1}s;`}
+            >
+              <td class="px-4 py-4 font-mono text-brand-muted">{row.id}</td>
+              <td class="px-4 py-4 text-brand-text">{row.customer}</td>
+              <td class="px-4 py-4 font-mono text-brand-bright">{row.amount}</td>
+              <td class="px-4 py-4 text-right">
+                <span class={`inline-block px-2 py-0.5 rounded-full text-xs font-mono border ${getStatusClasses(row.status)}`}>
+                  {row.status}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes rowFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .table-row {
+    opacity: 0;
+    animation: rowFadeIn 0.5s ease-out forwards;
+    animation-delay: var(--delay);
+  }
+</style>

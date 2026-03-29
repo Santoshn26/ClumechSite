@@ -1,0 +1,162 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import TestimonialCard from '@/components/TestimonialCard.astro';
+import CTABanner from '@/components/CTABanner.astro';
+import SystemCard from '@/components/SystemCard.astro';
+import StepProcess from '@/components/StepProcess.astro';
+
+const seo = {
+  title: "Clumech LLP | Custom Industrial Components & Supply",
+  description: "Clumech manufactures custom industrial components, manages vendor fulfillment, and supplies precision-grade consumables to mid-sized manufacturers across India."
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- 1. Hero -->
+  <section class="relative flex flex-col items-center text-center overflow-hidden border-b border-brand-border" style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px;">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(249,115,22,0.08) 0%, transparent 70%);"></div>
+    <div class="max-w-[1200px] mx-auto px-6 w-full py-24 md:py-32 z-10">
+      <span class="font-heading text-label uppercase text-accent-orange mb-6 reveal">BENGALURU · PUNE · EST. 2022</span>
+      <h1 class="font-heading text-h1 md:text-display text-shimmer max-w-4xl mb-6">
+        Built by Engineers.<br /> Delivered with Precision.
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed reveal delay-100">
+        Clumech manufactures custom industrial components, manages vendor fulfillment, and supplies precision-grade consumables to mid-sized manufacturers across India. Built to your spec. Delivered on time.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center reveal delay-200">
+        <a href="/contact" class="bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-cta-orange hover:shadow-glow-orange-lg transition-all duration-300 animate-pulse-glow">Request a Quote</a>
+        <a href="/services" class="border border-brand-border hover:border-accent-orange/50 text-slate-300 hover:text-white bg-transparent hover:bg-brand-card/50 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200">View Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Social Proof -->
+  <section class="py-16 md:py-24 bg-brand-surface">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="text-center mb-12 reveal">
+        <p class="font-heading text-label uppercase text-slate-400">SERVING MANUFACTURERS ACROSS INDIA</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-border rounded-2xl overflow-hidden border border-brand-border">
+        <div class="bg-brand-surface p-8 text-center reveal delay-100">
+          <p class="font-mono text-4xl font-bold text-accent-orange" data-count>50+</p>
+          <p class="text-sm text-slate-300 font-medium mt-2">Manufacturing Clients</p>
+        </div>
+        <div class="bg-brand-surface p-8 text-center reveal delay-200">
+          <p class="font-mono text-4xl font-bold text-accent-orange" data-count>5+</p>
+          <p class="text-sm text-slate-300 font-medium mt-2">Product Categories</p>
+        </div>
+        <div class="bg-brand-surface p-8 text-center reveal delay-300">
+          <p class="font-mono text-4xl font-bold text-accent-orange" data-count>35+</p>
+          <p class="text-sm text-slate-300 font-medium mt-2">Years Combined Experience</p>
+        </div>
+        <div class="bg-brand-surface p-8 text-center reveal delay-400">
+          <p class="font-mono text-4xl font-bold text-accent-orange" data-count>2</p>
+          <p class="text-sm text-slate-300 font-medium mt-2">Locations (Bengaluru · Pune)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Problem Section -->
+  <section id="platform" class="py-16 md:py-24 bg-light-bg text-light-text">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <h2 class="font-heading text-h2 text-slate-900">Manufacturing Has No Room for Compromise</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="reveal hover-lift glow-border"><ServiceCard title="Off-the-shelf doesn't fit your floor" description="Standard components don't match your workflow, space, or production line. You need parts built to your exact drawing — not what's on the shelf." iconEmoji="📏"/></div>
+        <div class="reveal delay-100 hover-lift glow-border"><ServiceCard title="Vendor chaos delays production" description="Chasing 5 different suppliers for tools, lubricants, and components wastes time and creates gaps. One partner should handle it all." iconEmoji="🚚"/></div>
+        <div class="reveal delay-200 hover-lift glow-border"><ServiceCard title="Custom fabrication shouldn't be slow" description="Most custom manufacturers take weeks. Clumech quotes in 48 hours and delivers with a quality inspection record." iconEmoji="⏱️"/></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Dual Offering -->
+  <section class="py-16 md:py-24 bg-brand-surface">
+    <div class="max-w-[1200px] mx-auto px-6 grid lg:grid-cols-2 gap-8 items-stretch">
+      <div class="reveal hover-lift glow-border"><SystemCard title="Custom Fabrication" description="We manufacture to your drawings. Chip trolleys, storage racks, precision assemblies, and custom jigs — built exactly to your specification with quality checked before dispatch." features={["Request a Fabrication Quote →"]} isDark={false}/></div>
+      <div class="reveal delay-100 hover-lift glow-border"><SystemCard title="Industrial Supply & Fulfillment" description="From cutting tools to lubricants to housekeeping products — we stock what your facility needs and manage the vendor coordination so you don't have to." features={["Browse Product Categories →"]} isDark={true}/></div>
+    </div>
+  </section>
+
+  <!-- 5. How It Works -->
+  <section class="py-16 md:py-24 bg-light-bg text-light-text">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-heading text-h2 text-slate-900">Our Process</h2>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 md:gap-4 justify-between text-center md:text-left">
+        <div class="reveal"><StepProcess stepNumber="1" title="Share Requirement" description="Share your drawing or requirement with our engineering team."/></div>
+        <div class="reveal delay-100"><StepProcess stepNumber="2" title="Get Quote" description="Receive a detailed quote for fabrication or supply within 48 hours."/></div>
+        <div class="reveal delay-200"><StepProcess stepNumber="3" title="Execution" description="Manufacturing or fulfillment begins, tracked by our internal systems."/></div>
+        <div class="reveal delay-300"><StepProcess stepNumber="4" title="Delivery" description="Receive your order with a quality inspection certificate." isLast={true}/></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Testimonials -->
+  <section class="py-16 md:py-24 bg-brand-surface">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="font-heading text-label uppercase text-accent-orange mb-4">— PROVEN IN THE FIELD</p>
+        <h2 class="font-heading text-h2 gradient-text">What Our Clients Say</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="reveal hover-lift">
+          <TestimonialCard 
+            name="Rajesh M."
+            role="Production Manager"
+            company="Auto Parts Unit, Pune"
+            content="We needed custom chip trolleys for our CNC expansion. Clumech understood our floor layout, built exactly what we described, and delivered ahead of schedule. No back and forth."
+          />
+        </div>
+        <div class="reveal delay-100 hover-lift">
+          <TestimonialCard 
+            name="Suresh K."
+            role="Purchase Head"
+            company="Machining Unit, Bengaluru"
+            content="Their cutting tools pricing beats our previous vendors consistently. Quality has been solid across 18 months of ordering. One PO, one invoice, one reliable partner."
+          />
+        </div>
+        <div class="reveal delay-200 hover-lift">
+          <TestimonialCard 
+            name="Dinesh R."
+            role="Operations Head"
+            company="Industrial Manufacturer, Pune"
+            content="We had an awkward corner space that no standard rack fit. Clumech visited, measured, and delivered a custom storage solution in 10 days. Exactly what we needed."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Final CTA -->
+  <section class="py-16 md:py-24 bg-brand-surface">
+    <div class="max-w-[1200px] mx-auto px-6 reveal">
+      <CTABanner 
+        headline="Have a Custom Requirement?"
+        subheadline="Talk to our engineering team. We'll review your drawings and send a quote within 48 hours."
+        buttonText="Request a Quote"
+        buttonLink="/contact"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const stats = document.querySelectorAll('[data-count]');
+  if (stats.length > 0) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-count'); // You can add a CSS animation for this class
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    stats.forEach(stat => statsObserver.observe(stat));
+  }
+</script>

@@ -1,0 +1,121 @@
+---
+// src/components/Navbar.astro
+
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => {
+  if (path === '/') return currentPath === '/';
+  return currentPath === path || currentPath.startsWith(path + '/');
+}
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  logoText?: string;
+  links?: NavLink[];
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  logoText = "BrandLogo",
+  links = [
+    { label: "Platform", href: "/" },
+    { label: "Products", href: "/services" },
+    { label: "Systems", href: "/systems" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" }
+  ],
+  ctaText = "Request Demo",
+  ctaLink = "/demo"
+} = Astro.props;
+---
+
+<header id="main-header" class="sticky top-0 z-50 w-full bg-brand-navy/80 backdrop-blur-lg border-b border-brand-border/50">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="flex justify-between items-center h-16">
+      
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/" class="font-heading font-bold text-2xl tracking-tight text-brand-bright">{logoText}</a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8 items-center">
+        {links.map(link => (
+          <a 
+            href={link.href}
+            class={isActive(link.href)
+              ? 'text-white border-b-2 border-accent-orange pb-0.5 font-medium text-sm'
+              : 'text-slate-400 hover:text-white transition-colors duration-150 text-sm'}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a 
+          href={ctaLink} 
+          class="bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-cta-orange hover:shadow-glow-orange-lg transition-all duration-300"
+          data-ga-cta={ctaText}
+          data-ga-location="Navbar"
+        >
+          {ctaText}
+        </a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <div class="flex md:hidden items-center">
+        <button id="mobile-menu-btn" type="button" class="text-brand-bright hover:text-white focus:outline-none p-2" aria-label="Toggle menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" class="fixed inset-0 top-16 z-40 bg-brand-navy/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col">
+      {links.map(link => (
+        <a href={link.href} class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-brand-text hover:bg-brand-card hover:text-brand-bright transition-colors">
+          {link.label}
+        </a>
+      ))}
+      <a 
+        href={ctaLink} 
+        class="mobile-link block w-full text-center mt-4 bg-accent-orange hover:bg-accent-orangeHover text-white px-6 py-3 rounded-xl font-semibold text-base transition-colors shadow-cta-orange"
+        data-ga-cta={ctaText}
+        data-ga-location="Mobile Menu"
+      >
+        {ctaText}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    if (!header) return;
+
+    const btn = header.querySelector('#mobile-menu-btn');
+    const menu = header.querySelector('#mobile-menu');
+    const menuLinks = menu?.querySelectorAll('.mobile-link');
+
+    if (!btn || !menu) return;
+
+    const toggleMenu = () => {
+      const isOpen = !menu.classList.contains('translate-x-full');
+      menu.classList.toggle('translate-x-full', isOpen);
+      menu.classList.toggle('translate-x-0', !isOpen);
+      document.body.classList.toggle('overflow-hidden', !isOpen);
+    };
+
+    btn.addEventListener('click', toggleMenu);
+    // Close menu when a link is clicked
+    menuLinks?.forEach(link => link.addEventListener('click', toggleMenu));
+  });
+</script>

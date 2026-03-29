@@ -1,0 +1,90 @@
+---
+// src/layouts/BaseLayout.astro
+import SEOHead from '@/components/SEOHead.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  seo: Record<string, any>;
+}
+
+const { seo } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEOHead {...seo} />
+
+    <!-- 
+      Core Web Vitals & Performance Checklist:
+      1. LCP (Largest Contentful Paint): Ensure the hero image/H1 is visible without scrolling and loads quickly. Use Astro's <Image> component for optimization.
+      2. INP (Interaction to Next Paint): Minimize main-thread work. Defer non-critical JS. Our CTA tracking script is async and lightweight.
+      3. CLS (Cumulative Layout Shift): Specify image dimensions to prevent layout shifts. Astro's <Image> handles this. Avoid inserting content dynamically above existing content.
+      4. Font Loading: Google Fonts are preconnected. `font-display: swap` is used to ensure text remains visible during load.
+    -->
+
+    <!-- Google Fonts: Inter & Sora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- GA4 placeholder — replace G-XXXXXXXXXX with real ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <!-- Clarity placeholder -->
+
+  </head>
+  <body class="bg-brand-surface text-brand-text font-body antialiased min-h-screen flex flex-col">
+    
+    <Navbar 
+      logoText="Clumech"
+      links={[
+        { label: "Platform", href: "/#platform" },
+        { label: "Systems", href: "/systems" },
+        { label: "Case Studies", href: "/case-studies" },
+        { label: "About", href: "/about" },
+        { label: "Contact", href: "/contact" }
+      ]}
+      ctaText="Request Demo"
+      ctaLink="/demo"
+    />
+
+    <!-- Main Content -->
+    <main class="flex-grow w-full">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      // Scroll reveal observer
+      const revealEls = document.querySelectorAll('.reveal');
+      if (revealEls.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+      }
+    </script>
+
+  </body>
+</html>

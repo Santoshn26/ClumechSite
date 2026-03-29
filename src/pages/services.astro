@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroSection from '@/components/HeroSection.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import CTABanner from '@/components/CTABanner.astro';
+
+const categories = [
+  "All", "Cutting Tools", "Lubricants", "Surface Cleaning", "Material Handling", "Housekeeping"
+];
+
+const products = [
+  { title: "Carbide End Mills", description: "High-performance solid carbide end mills for precision machining in aerospace and automotive applications.", category: "Cutting Tools", iconEmoji: "⚙️" },
+  { title: "High-Speed Steel Drills", description: "Industrial-grade HSS drill bits coated for maximum thermal resistance and extended tool life on the factory floor.", category: "Cutting Tools", iconEmoji: "🗜️" },
+  { title: "Synthetic Hydraulic Oil", description: "Advanced synthetic blend to maintain viscosity and protect heavy machinery under extreme pressure.", category: "Lubricants", iconEmoji: "🛢️" },
+  { title: "Extreme Pressure Grease", description: "Lithium-complex grease formulated to reduce friction and prevent systemic wear in high-load mechanical joints.", category: "Lubricants", iconEmoji: "🔧" },
+  { title: "Solvent Degreasers", description: "Fast-acting industrial solvents that rapidly break down baked-on carbon, grease, and heavy sludge.", category: "Surface Cleaning", iconEmoji: "🧼" },
+  { title: "Aqueous Parts Cleaners", description: "Environmentally conscious, water-based cleaning solutions for ultrasonic baths and automated parts washers.", category: "Surface Cleaning", iconEmoji: "🌊" },
+  { title: "Motorized Pallet Jacks", description: "High-capacity electric pallet jacks designed to maneuver heavy loads safely through tight warehouse aisles.", category: "Material Handling", iconEmoji: "🏗️" },
+  { title: "Overhead Rigging Slings", description: "Certified heavy-duty lifting slings and chains, inspected and rated for maximum overhead load bearing.", category: "Material Handling", iconEmoji: "⛓️" },
+  { title: "Chemical Absorbents", description: "Rapid-deployment spill control kits and absorbent booms to quickly neutralize hazardous industrial leaks.", category: "Housekeeping", iconEmoji: "🧽" },
+  { title: "Industrial Sweeping Compounds", description: "Dust-abating sweeping compounds that keep facility floors compliant with OSHA particulate standards.", category: "Housekeeping", iconEmoji: "🧹" }
+];
+
+const seo = {
+  title: "Products & Services | Clumech LLP",
+  description: "Browse our comprehensive catalog of industrial cutting tools, lubricants, cleaning supplies, and material handling equipment."
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- Hero Section -->
+  <HeroSection 
+    badgeText="Industrial Supply"
+    title="Hardware & Consumables"
+    subtitle="Equip your facility with high-grade industrial supplies designed to withstand the most demanding manufacturing environments."
+    primaryCtaText="Download Full Catalog"
+    primaryCtaLink="/catalog.pdf"
+    secondaryCtaText="Contact Sales"
+    secondaryCtaLink="/contact"
+  />
+
+  <!-- Filter System & Product Grid -->
+  <section class="py-16 md:py-24 bg-light-bg text-light-text">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-16" id="filter-container">
+        {categories.map((category, index) => (
+          <button 
+            class:list={[
+              "filter-btn px-5 py-2 rounded-xl text-sm font-semibold border transition-colors duration-200",
+              index === 0 
+                ? 'active bg-accent-orange text-white border-accent-orange' 
+                : 'bg-light-card text-light-text border-light-border hover:border-light-text/50'
+            ]}
+            data-filter={category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+        {products.map(product => (
+          <div class="product-card" data-category={product.category}>
+            <ServiceCard 
+              title={product.title}
+              description={product.description}
+              iconEmoji={product.iconEmoji}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 md:py-24 bg-brand-surface">
+    <div class="max-w-[1200px] mx-auto px-6 reveal">
+      <CTABanner 
+        headline="Need a Custom Procurement Plan?" 
+        subheadline="Our logistics engineers can help you establish automated supply chain replenishment for your critical consumables." 
+        buttonText="Speak with an Engineer" 
+        buttonLink="/contact" 
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll('[data-filter]');
+  const cards = document.querySelectorAll('[data-category]');
+  if (filterBtns.length > 0 && cards.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update button styles
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-accent-orange', 'text-white', 'border-accent-orange');
+          b.classList.add('bg-light-card', 'text-light-text', 'border-light-border');
+        });
+        btn.classList.add('active', 'bg-accent-orange', 'text-white', 'border-accent-orange');
+        btn.classList.remove('bg-light-card', 'text-light-text', 'border-light-border');
+
+        // Show/hide cards
+        cards.forEach(card => {
+          if (filter === 'All' || card.dataset.category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+</script>

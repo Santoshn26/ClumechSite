@@ -1,0 +1,39 @@
+---
+// src/components/SystemCard.astro
+
+interface Props {
+  title: string;
+  description: string;
+  features: string[];
+  isDark?: boolean; // Determines if it's the primary dark card or the secondary lighter one
+}
+
+const { 
+  title, 
+  description, 
+  features,
+  isDark = false
+} = Astro.props;
+
+const baseClasses = "p-8 rounded-2xl border transition-all duration-300 h-full flex flex-col";
+const themeClasses = isDark
+  ? "bg-brand-navy text-brand-bright border-brand-border shadow-2xl shadow-black/30"
+  : "bg-brand-card/80 text-brand-bright border-white/10 backdrop-blur-lg";
+---
+
+<div class={`${baseClasses} ${themeClasses}`}>
+  <h3 class="font-heading text-h3 mb-3 text-brand-bright">
+    {title}
+  </h3>
+  <p class="mb-8 text-brand-text">
+    {description}
+  </p>
+  <ul class="space-y-3 mt-auto">
+    {features.map(feature => (
+      <li class="flex items-start gap-3">
+        <span class="text-accent-orange shrink-0 mt-1">✓</span>
+        <span class="text-sm text-brand-text">{feature}</span>
+      </li>
+    ))}
+  </ul>
+</div>
