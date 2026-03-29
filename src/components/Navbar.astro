@@ -13,9 +13,6 @@ export interface NavLink {
 }
 
 export interface Props {
-  /** An array of navigation links to display in the navbar. */
-  links?: NavLink[];
-
   /** The text for the main call-to-action button. Defaults to "Request Demo". */
   ctaText?: string;
 
@@ -23,14 +20,15 @@ export interface Props {
   ctaLink?: string;
 }
 
+const links: NavLink[] = [
+  { label: "Products", href: "/products" },
+  { label: "Systems", href: "/systems" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" }
+];
+
 const {
-  links = [
-    { label: "Products", href: "/products" },
-    { label: "Systems", href: "/systems" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" }
-  ],
   ctaText = "Request Demo",
   ctaLink = "/demo"
 } = Astro.props;

@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import CTABanner from '@/components/CTABanner.astro';
 
 const seo = {
   title: "Industrial Products & Custom Fabrication | Clumech LLP",
-  description: "Clumech supplies cutting tools, lubricants, material handling products and manufactures custom components for mid-sized industrial businesses across India."
+  description: "Clumech manufactures custom chip trolleys, precision components, castings, and transmission parts for automotive, aerospace, pharmaceutical and food-grade industries. Bengaluru & Pune."
 };
 ---
 
@@ -15,273 +14,245 @@ const seo = {
     <div class="max-w-[1200px] mx-auto px-6 w-full py-24 md:py-32 z-10">
       <p class="font-heading text-label uppercase text-accent-orange mb-6 reveal">— PRODUCT CATALOGUE</p>
       <h1 class="font-heading text-h1 md:text-display text-shimmer max-w-4xl mx-auto mb-6 reveal delay-100">
-        Everything Your Facility Needs.<br /> Custom Built or Ready to Ship.
+        Custom Built.<br /> Precision Engineered.<br /> Ready When You Need It.
       </h1>
-      <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed reveal delay-200">
-        From precision-fabricated components to industrial consumables — Clumech supplies mid-sized manufacturers across India with what they need, when they need it.
+      <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed reveal delay-200">
+        From customised chip trolleys to precision transmission components — Clumech manufactures and supplies industrial solutions across automotive, aerospace, pharmaceutical, and food-grade sectors.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center reveal delay-300">
-        <a href="#custom-fabrication" class="px-6 py-2.5 rounded-full font-semibold text-sm text-orange-400 border border-orange-500/40 bg-brand-navy/50 hover:bg-orange-500/10 hover:text-orange-300 transition-all duration-200">Custom Fabrication</a>
-        <a href="#ready-stock" class="px-6 py-2.5 rounded-full font-semibold text-sm text-orange-400 border border-orange-500/40 bg-brand-navy/50 hover:bg-orange-500/10 hover:text-orange-300 transition-all duration-200">Ready Stock Products</a>
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-8 reveal delay-300">
+        <span class="bg-white/5 border border-white/10 text-slate-400 text-xs font-mono px-3 py-1 rounded-full">Automotive</span>
+        <span class="bg-white/5 border border-white/10 text-slate-400 text-xs font-mono px-3 py-1 rounded-full">Aerospace</span>
+        <span class="bg-white/5 border border-white/10 text-slate-400 text-xs font-mono px-3 py-1 rounded-full">Pharmaceutical</span>
+        <span class="bg-white/5 border border-white/10 text-slate-400 text-xs font-mono px-3 py-1 rounded-full">Food Grade</span>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center reveal delay-400">
+        <button data-scroll-to="#fabrication" class="px-4 py-2 rounded-full font-medium text-sm text-orange-400 border border-orange-500/40 bg-brand-navy/50 hover:bg-orange-500/10 hover:text-orange-300 transition-all duration-200 cursor-pointer">Custom Fabrication ↓</button>
+        <button data-scroll-to="#product-categories" class="px-4 py-2 rounded-full font-medium text-sm text-orange-400 border border-orange-500/40 bg-brand-navy/50 hover:bg-orange-500/10 hover:text-orange-300 transition-all duration-200 cursor-pointer">View All Products ↓</button>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 2: Custom Fabrication -->
-  <section id="custom-fabrication" class="bg-brand-surface py-16 md:py-24">
+  <!-- SECTION 2: Origin Story Strip -->
+  <section class="bg-brand-navy py-16 md:py-20">
+    <div class="max-w-2xl mx-auto px-6 text-center reveal">
+      <p class="font-heading text-label uppercase text-slate-500 mb-4">— OUR ROOTS</p>
+      <p class="text-slate-400 leading-relaxed">
+        Clumech began as a distributor of lubrication products and tooling solutions for HMC and VMC machine centres. Today we've grown into a full custom fabrication and precision manufacturing partner — but our tooling DNA remains.
+      </p>
+      <div class="w-16 h-[2px] bg-orange-500 mx-auto mt-8"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: HERO PRODUCT: Storage & Handling -->
+  <section id="fabrication" class="bg-brand-surface py-16 md:py-24">
     <div class="max-w-[1200px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-      <div class="reveal">
-        <p class="font-heading text-label uppercase text-accent-orange mb-4">— CUSTOM FABRICATION</p>
-        <h2 class="font-heading text-h2 gradient-text mb-6">Built to Your Drawing. Delivered to Your Floor.</h2>
+      <div class="reveal-left">
+        <p class="font-heading text-label uppercase text-accent-orange mb-4">— MATERIAL STORAGE & HANDLING</p>
+        <h2 class="font-heading text-h2 gradient-text mb-6">Space-Saving Systems.<br/>Built Around Your Floor.</h2>
         <p class="text-lg text-slate-300 leading-relaxed mb-8">
-          We manufacture custom industrial components from client-provided drawings and specifications. No minimum order constraints for established clients. Quality inspection included on every fabricated piece.
+          We design and fabricate customised material storage and handling solutions tailored to your facility's exact layout. No standard shelf that almost fits — we build what works for your floor, your workflow, and your space.
         </p>
-        <ul class="space-y-3 mb-10">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent-orange mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span class="text-slate-300">Chip trolleys and material handling units</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent-orange mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span class="text-slate-300">Custom storage racks and space utilisation systems</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent-orange mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span class="text-slate-300">Precision jigs, fixtures, and assemblies</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent-orange mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-            <span class="text-slate-300">Any component to your CAD drawing or sketch</span>
-          </li>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3"><span class="text-accent-orange mt-1">→</span><span class="text-slate-300">Chip Trolleys (standard & custom dimensions)</span></li>
+          <li class="flex items-start gap-3"><span class="text-accent-orange mt-1">→</span><span class="text-slate-300">Double Cylinder Trolley</span></li>
+          <li class="flex items-start gap-3"><span class="text-accent-orange mt-1">→</span><span class="text-slate-300">Grinding Wheel Storage Cabinet (customised)</span></li>
+          <li class="flex items-start gap-3"><span class="text-accent-orange mt-1">→</span><span class="text-slate-300">Sawing Machine Chip Collection Trolley</span></li>
+          <li class="flex items-start gap-3"><span class="text-accent-orange mt-1">→</span><span class="text-slate-300">Sheet Metal Cages & Storage Boxes</span></li>
         </ul>
-        <a href="/contact" class="bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-cta-orange hover:shadow-glow-orange-lg transition-all duration-300">Request a Fabrication Quote</a>
+        <div class="flex flex-wrap items-center gap-3 mb-10">
+          <span class="bg-white/5 border border-white/10 text-slate-400 text-xs font-mono px-3 py-1 rounded-full">Sheet Metal Fabrication</span>
+          <span class="bg-white/5 border border-white/10 text-slate-400 text-xs font-mono px-3 py-1 rounded-full">Custom Dimensions</span>
+        </div>
+        <a href="/contact" class="bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-cta-orange hover:shadow-glow-orange-lg transition-all duration-300">Request a Custom Quote</a>
       </div>
-      <div class="reveal delay-100" style="box-shadow: 0 0 60px rgba(249,115,22,0.08)">
+      <div class="reveal-right" style="box-shadow: 0 0 60px rgba(249,115,22,0.08)">
         <div class="bg-[#0F172A] border border-white/10 rounded-2xl p-6">
           <div class="flex items-center gap-2 mb-6">
-            <div class="flex gap-1.5">
-              <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-              <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-            </div>
-            <p class="font-mono text-xs text-slate-500">fabrication-req-042.pdf</p>
+            <div class="flex gap-1.5"><div class="w-3 h-3 rounded-full bg-red-500/50"></div><div class="w-3 h-3 rounded-full bg-yellow-500/50"></div><div class="w-3 h-3 rounded-full bg-green-500/50"></div></div>
+            <p class="font-mono text-xs text-slate-500">custom-order-ref-CLM-042</p>
           </div>
-          <div class="space-y-4">
-            <div class="flex justify-between items-center border-b border-white/5 pb-4">
-              <p class="font-mono text-xs text-slate-500 uppercase tracking-wider">Component Type</p>
-              <p class="text-white text-sm font-medium">Custom Chip Trolley</p>
-            </div>
-            <div class="flex justify-between items-center border-b border-white/5 pb-4">
-              <p class="font-mono text-xs text-slate-500 uppercase tracking-wider">Material</p>
-              <p class="text-white text-sm font-medium">MS Steel 3mm</p>
-            </div>
-            <div class="flex justify-between items-center border-b border-white/5 pb-4">
-              <p class="font-mono text-xs text-slate-500 uppercase tracking-wider">Quantity</p>
-              <p class="text-white text-sm font-medium">12 units</p>
-            </div>
-            <div class="flex justify-between items-center pb-2">
-              <p class="font-mono text-xs text-slate-500 uppercase tracking-wider">Delivery</p>
-              <p class="text-white text-sm font-medium">9 working days</p>
-            </div>
+          <p class="text-orange-500 text-xs font-mono tracking-widest uppercase mb-4">FABRICATION SPEC</p>
+          <div class="space-y-2 border-t border-white/5">
+            <div class="flex justify-between items-center border-b border-white/5 py-2.5"><p class="font-mono text-xs text-slate-500 uppercase">PRODUCT</p><p class="text-white text-sm font-medium text-right">Chip Trolley — CNC Section</p></div>
+            <div class="flex justify-between items-center border-b border-white/5 py-2.5"><p class="font-mono text-xs text-slate-500 uppercase">MATERIAL</p><p class="text-white text-sm font-medium">MS Steel 3mm</p></div>
+            <div class="flex justify-between items-center border-b border-white/5 py-2.5"><p class="font-mono text-xs text-slate-500 uppercase">DIMENSIONS</p><p class="text-white text-sm font-medium">900×600×850mm (Custom)</p></div>
+            <div class="flex justify-between items-center border-b border-white/5 py-2.5"><p class="font-mono text-xs text-slate-500 uppercase">FINISH</p><p class="text-white text-sm font-medium">Powder Coated, RAL 7016</p></div>
+            <div class="flex justify-between items-center border-b border-white/5 py-2.5"><p class="font-mono text-xs text-slate-500 uppercase">QTY</p><p class="text-white text-sm font-medium">8 Units</p></div>
+            <div class="flex justify-between items-center border-b border-white/5 py-2.5"><p class="font-mono text-xs text-slate-500 uppercase">SECTOR</p><p class="text-white text-sm font-medium">Automotive</p></div>
           </div>
-          <div class="mt-6 pt-6 border-t border-white/10">
-            <div class="flex justify-between items-center mb-3">
-              <span class="bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-mono px-3 py-1 rounded-full">IN PRODUCTION</span>
-              <span class="text-orange-500 text-xs font-mono">65%</span>
+          <div class="mt-4 pt-4 border-t border-white/10">
+            <div class="flex justify-between items-center mb-4">
+              <div class="flex items-center gap-2"><p class="font-mono text-xs text-slate-500 uppercase">STATUS</p><span class="bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-mono px-2 py-0.5 rounded-full">IN PRODUCTION</span></div>
+              <div class="flex items-center gap-2"><p class="font-mono text-xs text-slate-500 uppercase">DELIVERY</p><p class="text-slate-300 text-sm font-mono">9 working days</p></div>
             </div>
-            <div class="w-full bg-brand-card rounded-full h-1.5">
-              <div class="bg-orange-500 h-1.5 rounded-full" style="width: 65%"></div>
-            </div>
+            <div class="flex justify-between items-center mb-2"><p class="text-slate-500 text-xs font-mono">Fabrication Progress</p><p class="text-orange-400 text-xs font-mono">65%</p></div>
+            <div class="w-full bg-brand-card rounded-full h-2"><div class="bg-gradient-to-r from-orange-500 to-orange-400 h-2 rounded-full" style="width: 65%"></div></div>
+            <p class="text-slate-500 text-xs italic mt-4 text-center">Quality inspection included on delivery</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3: Product Categories Grid -->
-  <section id="ready-stock" class="bg-light-bg py-16 md:py-24">
+  <!-- SECTION 4: Product Categories Grid -->
+  <section id="product-categories" class="bg-light-bg py-16 md:py-24">
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <p class="font-heading text-label uppercase text-slate-500 mb-4">— INDUSTRIAL SUPPLY</p>
-        <h2 class="font-heading text-h2 text-slate-900">Five Product Categories. One Reliable Partner.</h2>
-        <p class="text-lg text-slate-600 mt-4">
-          Stop managing 5 vendors. Clumech stocks and supplies everything your facility needs on a single purchase order.
-        </p>
+        <p class="font-heading text-label uppercase text-slate-500 mb-4">— FULL PRODUCT RANGE</p>
+        <h2 class="font-heading text-h2 text-slate-900">Five Specialisations. One Partner.</h2>
+        <p class="text-lg text-slate-600 mt-4">Whether you need precision-machined components, cast parts, or transmission components — Clumech has the manufacturing capability to deliver.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Card 1: Cutting Tools -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 reveal">
-          <div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 text-3xl">⚙️</div>
-          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Cutting Tools & Inserts</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mt-2">Precision cutting tools and inserts for CNC, turning, milling, and machining operations. Sourced from reliable manufacturers.</p>
-          <ul class="text-slate-500 text-xs mt-3 space-y-1">
-            <li>• Turning inserts</li>
-            <li>• Milling cutters</li>
-            <li>• Drills & reamers</li>
-          </ul>
-          <a href="/contact" class="font-semibold text-sm text-accent-orange hover:underline mt-4 inline-block">Enquire Now →</a>
+        <!-- Card 1: Storage & Handling -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 reveal relative">
+          <div class="absolute top-4 right-4 bg-orange-100 text-orange-700 text-xs font-bold uppercase px-2 py-0.5 rounded-full">FLAGSHIP</div>
+          <div class="w-14 h-14 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 text-2xl"><svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7s0 4 8 4 8-4 8-4m-8 8c0 2.21-3.582 4-8 4" /></svg></div>
+          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Storage & Handling Systems</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">Custom chip trolleys, cylinder trolleys, grinding wheel cabinets, and sheet metal storage solutions built to your floor spec.</p>
+          <p class="text-xs font-mono text-slate-400 mt-4">Chip Trolleys · Storage Racks · Custom Fab</p>
+          <a href="/contact" class="font-medium text-sm text-orange-500 hover:text-orange-600 mt-4 inline-flex items-center gap-1">Get a Quote →</a>
         </div>
-        <!-- Card 2: Lubricants -->
+        <!-- Card 2: Transmission Components -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 reveal delay-100">
-          <div class="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 text-3xl">💧</div>
-          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Lubricants</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mt-2">Industrial lubricants for machinery, hydraulics, and metal working. Suitable for high-load and high-temperature applications.</p>
-          <ul class="text-slate-500 text-xs mt-3 space-y-1">
-            <li>• Cutting fluids</li>
-            <li>• Hydraulic oils</li>
-            <li>• Specialty greases</li>
-          </ul>
-          <a href="/contact" class="font-semibold text-sm text-accent-orange hover:underline mt-4 inline-block">Enquire Now →</a>
+          <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-blue-500 text-2xl"><svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-1.007 1.11-1.226l.28-.1c.58-.208 1.22-.172 1.75.12l.28.14c.53.278.88.836.97 1.425l.02.28c.09.542-.2 1.11-.74 1.425l-.28.14c-.58.29-1.22.325-1.75.12l-.28-.1c-.53-.19-1.007-.648-1.11-1.226l-.02-.28zM10.343 3.94l4.314 4.314m-4.314-4.314l-4.314 4.314" /></svg></div>
+          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Transmission Components</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">Gear grinding and hobbing components manufactured to tight tolerances for automotive and aerospace drivetrains.</p>
+          <p class="text-xs font-mono text-slate-400 mt-4">Gear Grinding · Hobbing · Automotive</p>
+          <a href="/contact" class="font-medium text-sm text-orange-500 hover:text-orange-600 mt-4 inline-flex items-center gap-1">Enquire Now →</a>
         </div>
-        <!-- Card 3: Surface Cleaning -->
+        <!-- Card 3: Precision Component Machining -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 reveal delay-200">
-          <div class="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 text-3xl">✨</div>
-          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Surface Cleaning</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mt-2">Industrial surface cleaning products for machinery, shop floors, and metal components. Safe, effective, and industrial-grade.</p>
-          <ul class="text-slate-500 text-xs mt-3 space-y-1">
-            <li>• Degreasers</li>
-            <li>• Metal cleaners</li>
-            <li>• Anti-rust treatments</li>
-          </ul>
-          <a href="/contact" class="font-semibold text-sm text-accent-orange hover:underline mt-4 inline-block">Enquire Now →</a>
+          <div class="w-14 h-14 rounded-xl bg-purple-50 flex items-center justify-center text-purple-500 text-2xl"><svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 7.5v6l4.5-3-4.5-3z" /></svg></div>
+          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Precision Component Machining</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">CNC-machined precision components from client drawings. HMC and VMC capability. Any material. Tight tolerance guaranteed.</p>
+          <p class="text-xs font-mono text-slate-400 mt-4">CNC Machining · HMC/VMC · To Drawing</p>
+          <a href="/contact" class="font-medium text-sm text-orange-500 hover:text-orange-600 mt-4 inline-flex items-center gap-1">Enquire Now →</a>
         </div>
-        <!-- Card 4: Material Handling -->
+        <!-- Card 4: Casting -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 reveal">
-          <div class="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-600 text-3xl">📦</div>
-          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Material Handling & Storage</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mt-2">Material handling equipment and storage solutions including standard and custom configurations for your facility.</p>
-          <ul class="text-slate-500 text-xs mt-3 space-y-1">
-            <li>• Storage racks</li>
-            <li>• Trolleys</li>
-            <li>• Bin systems</li>
-          </ul>
-          <a href="/contact" class="font-semibold text-sm text-accent-orange hover:underline mt-4 inline-block">Enquire Now →</a>
+          <div class="w-14 h-14 rounded-xl bg-stone-100 flex items-center justify-center text-stone-500 text-2xl"><svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.362-3.797z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214C16.317 5.59 17.22 6.168 18 7.048a8.287 8.287 0 00-2.638 2.552 8.983 8.983 0 01-3.362-3.797z" /></svg></div>
+          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Casting</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">Grey Cast Iron and Ductile Iron castings for heavy-duty industrial applications. Automotive, pharma, and food-grade sectors.</p>
+          <p class="text-xs font-mono text-slate-400 mt-4">Grey Cast Iron · Ductile Iron · Custom</p>
+          <a href="/contact" class="font-medium text-sm text-orange-500 hover:text-orange-600 mt-4 inline-flex items-center gap-1">Enquire Now →</a>
         </div>
-        <!-- Card 5: Housekeeping -->
+        <!-- Card 5: Tooling & Lubrication -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 reveal delay-100">
-          <div class="w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center text-red-500 text-3xl">🛡️</div>
-          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Housekeeping & Hygiene</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mt-2">Industrial housekeeping and hygiene products for manufacturing facilities. Keeps your shop floor clean and compliant.</p>
-          <ul class="text-slate-500 text-xs mt-3 space-y-1">
-            <li>• Floor cleaners</li>
-            <li>• Safety absorbents</li>
-            <li>• Facility hygiene kits</li>
-          </ul>
-          <a href="/contact" class="font-semibold text-sm text-accent-orange hover:underline mt-4 inline-block">Enquire Now →</a>
-        </div>
-        <!-- Card 6: Cotton -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 reveal delay-200">
-          <div class="w-16 h-16 rounded-2xl bg-sky-50 flex items-center justify-center text-sky-600 text-3xl">🌿</div>
-          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Premium Indian Cotton</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mt-2">100% pure bleached and non-bleached Indian cotton for industrial and OEM use. Export quality. Competitive pricing.</p>
-          <ul class="text-slate-500 text-xs mt-3 space-y-1">
-            <li>• Absorbent cotton wool</li>
-            <li>• Bleached comber for OEM</li>
-            <li>• Grey cotton</li>
-          </ul>
-          <a href="/contact" class="font-semibold text-sm text-accent-orange hover:underline mt-4 inline-block">Enquire Now →</a>
+          <div class="w-14 h-14 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500 text-2xl"><svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l-4.24-4.24a5.25 5.25 0 017.42-7.42L15.17 11.42M11.42 15.17l-4.24 4.24a5.25 5.25 0 01-7.42-7.42L7.18 11.42" /></svg></div>
+          <h3 class="font-heading font-semibold text-lg text-slate-900 mt-4">Tooling & Lubrication</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">Cutting tools, inserts, and lubrication products for HMC and VMC machine centres. Where Clumech began — still delivering.</p>
+          <p class="text-xs font-mono text-slate-400 mt-4">Cutting Tools · Inserts · Lubricants</p>
+          <a href="/contact" class="font-medium text-sm text-orange-500 hover:text-orange-600 mt-4 inline-flex items-center gap-1">Enquire Now →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: Why Source from Clumech -->
+  <!-- SECTION 5: Industries We Serve -->
   <section class="bg-brand-surface py-16 md:py-24">
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <h2 class="font-heading text-h2 gradient-text">Why Manufacturers Choose Clumech</h2>
+        <p class="font-heading text-label uppercase text-accent-orange mb-4">— INDUSTRY REACH</p>
+        <h2 class="font-heading text-h2 gradient-text">Built for Demanding Industries</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Column 1 -->
-        <div class="bg-brand-card p-8 rounded-2xl border border-brand-border glow-border reveal">
-          <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 mb-4">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">One Partner, One Invoice</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">Stop managing 5 vendor relationships. Everything on a single PO, single invoice, delivered together.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Card 1: Automotive -->
+        <div class="bg-brand-card p-6 rounded-2xl border border-brand-border glow-border reveal">
+          <div class="w-11 h-11 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H3.375c-.621 0-1.125.504-1.125 1.125v1.5" /></svg></div>
+          <h3 class="text-white font-semibold mb-2">Automotive</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Chip trolleys, transmission components, and precision machined parts for automotive production lines and tier-1 suppliers.</p>
         </div>
-        <!-- Column 2 -->
-        <div class="bg-brand-card p-8 rounded-2xl border border-brand-border glow-border reveal delay-100">
-          <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 mb-4">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">48-Hour Quote Turnaround</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">Custom fabrication quote in 48 hours. Ready-stock enquiries answered same day. No chasing, no waiting.</p>
+        <!-- Card 2: Aerospace -->
+        <div class="bg-brand-card p-6 rounded-2xl border border-brand-border glow-border reveal delay-100">
+          <div class="w-11 h-11 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg></div>
+          <h3 class="text-white font-semibold mb-2">Aerospace</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Tight-tolerance precision components and transmission parts meeting aerospace material and finish specifications.</p>
         </div>
-        <!-- Column 3 -->
-        <div class="bg-brand-card p-8 rounded-2xl border border-brand-border glow-border reveal delay-200">
-          <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 mb-4">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">Quality Inspection Included</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">Every fabricated component ships with an inspection record. No surprises when it lands on your floor.</p>
+        <!-- Card 3: Pharmaceutical -->
+        <div class="bg-brand-card p-6 rounded-2xl border border-brand-border glow-border reveal delay-200">
+          <div class="w-11 h-11 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7zM12 12h.008v.008H12V12z" /></svg></div>
+          <h3 class="text-white font-semibold mb-2">Pharmaceutical</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Casting and fabricated storage systems for pharma manufacturing environments requiring clean, compliant solutions.</p>
+        </div>
+        <!-- Card 4: Food Grade -->
+        <div class="bg-brand-card p-6 rounded-2xl border border-brand-border glow-border reveal delay-300">
+          <div class="w-11 h-11 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+          <h3 class="text-white font-semibold mb-2">Food Grade</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Storage and handling systems designed for food-grade environments — hygienic materials and finishes available.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: How to Order -->
+  <!-- SECTION 6: How to Order -->
   <section class="bg-light-bg py-16 md:py-24">
     <div class="max-w-[1200px] mx-auto px-6">
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <p class="font-heading text-label uppercase text-slate-500 mb-4">— THE PROCESS</p>
-        <h2 class="font-heading text-h2 text-slate-900">Getting Started is Simple</h2>
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <p class="font-heading text-label uppercase text-slate-500 mb-4">— HOW TO ORDER</p>
+        <h2 class="font-heading text-h2 text-slate-900">Simple Process. Reliable Delivery.</h2>
       </div>
       <div class="relative">
-        <!-- Desktop connector line -->
-        <div class="hidden md:block absolute top-10 left-0 w-full h-px bg-slate-300 border-t border-dashed border-slate-300"></div>
-        
-        <div class="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+        <div class="hidden md:block absolute top-6 left-0 w-full h-px bg-slate-300 border-t border-dashed border-slate-300"></div>
+        <div class="relative grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8">
           <!-- Step 1 -->
-          <div class="text-center md:text-left reveal">
-            <p class="absolute -top-8 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-6xl font-bold text-orange-500/10 -z-10">01</p>
+          <div class="relative text-center md:text-left reveal">
+            <p class="absolute -top-12 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-7xl font-bold text-orange-500/15 -z-10">01</p>
             <h3 class="font-semibold text-slate-900 mb-2">Share Your Requirement</h3>
-            <p class="text-slate-600 text-sm">Tell us what you need — a drawing, a description, or just a product category. We'll take it from there.</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Send us your drawing, specification, or a description. WhatsApp or email works fine. We'll confirm receipt within hours.</p>
           </div>
           <!-- Step 2 -->
-          <div class="text-center md:text-left reveal delay-100">
-            <p class="absolute -top-8 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-6xl font-bold text-orange-500/10 -z-10">02</p>
-            <h3 class="font-semibold text-slate-900 mb-2">Receive Your Quote</h3>
-            <p class="text-slate-600 text-sm">We send a detailed quote within 48 hours for custom fab, same day for stock products.</p>
+          <div class="relative text-center md:text-left reveal delay-100">
+            <p class="absolute -top-12 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-7xl font-bold text-orange-500/15 -z-10">02</p>
+            <h3 class="font-semibold text-slate-900 mb-2">Quote in 48 Hours</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">We review your requirement and send a detailed quote within 48 hours. Custom fabrication or standard stock — same speed.</p>
           </div>
           <!-- Step 3 -->
-          <div class="text-center md:text-left reveal delay-200">
-            <p class="absolute -top-8 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-6xl font-bold text-orange-500/10 -z-10">03</p>
-            <h3 class="font-semibold text-slate-900 mb-2">Approve and We Begin</h3>
-            <p class="text-slate-600 text-sm">Once you approve, fabrication starts or stock is reserved for dispatch.</p>
+          <div class="relative text-center md:text-left reveal delay-200">
+            <p class="absolute -top-12 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-7xl font-bold text-orange-500/15 -z-10">03</p>
+            <h3 class="font-semibold text-slate-900 mb-2">Approve & We Begin</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Once you approve, manufacturing or dispatch begins immediately. No unnecessary delays.</p>
           </div>
           <!-- Step 4 -->
-          <div class="text-center md:text-left reveal delay-300">
-            <p class="absolute -top-8 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-6xl font-bold text-orange-500/10 -z-10">04</p>
-            <h3 class="font-semibold text-slate-900 mb-2">Delivery with Documentation</h3>
-            <p class="text-slate-600 text-sm">Your order arrives with delivery records and quality inspection certificates.</p>
+          <div class="relative text-center md:text-left reveal delay-300">
+            <p class="absolute -top-12 left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 font-mono text-7xl font-bold text-orange-500/15 -z-10">04</p>
+            <h3 class="font-semibold text-slate-900 mb-2">Delivered with Documentation</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Your order arrives with delivery records and quality inspection certificates included.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 6: Final CTA -->
+  <!-- SECTION 7: Final CTA -->
   <section class="bg-brand-surface py-16 md:py-24">
     <div class="max-w-[1200px] mx-auto px-6">
       <div 
         class="max-w-3xl mx-auto rounded-3xl p-8 md:p-12 text-center border border-orange-500/20 reveal"
-        style="
-          background: linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(30,41,59,0.9) 50%, rgba(249,115,22,0.05) 100%);
-          box-shadow: 0 0 80px rgba(249,115,22,0.08);
-        "
-      >
-        <p class="font-heading text-label uppercase text-accent-orange mb-4">READY TO ORDER?</p>
-        <h2 class="font-heading text-h2 gradient-text mb-4">Send Us Your Requirement Today</h2>
-        <p class="text-slate-300 max-w-lg mx-auto mb-8">
-          Custom component or stock product — describe what you need and we'll get back with a quote within 48 hours.
-        </p>
+        style="background: linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(30,41,59,0.9) 50%, rgba(249,115,22,0.05) 100%); box-shadow: 0 0 80px rgba(249,115,22,0.08);">
+        <p class="font-heading text-label uppercase text-accent-orange mb-4">— GET STARTED</p>
+        <h2 class="font-heading text-h2 gradient-text mb-4">Have a Custom Requirement?</h2>
+        <p class="text-slate-300 max-w-lg mx-auto mb-8">Custom component, storage system, or precision part — describe what you need and we'll get back with a quote within 48 hours.</p>
         <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
           <a href="/contact" class="bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-cta-orange hover:shadow-glow-orange-lg transition-all duration-300 animate-pulse-glow">Request a Quote</a>
-          <a href="tel:+919845349735" class="border border-brand-border hover:border-accent-orange/50 text-slate-300 hover:text-white bg-transparent hover:bg-brand-card/50 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200">Call Us Now</a>
+          <a href="tel:+919845349735" class="border border-brand-border hover:border-accent-orange/50 text-slate-300 hover:text-white bg-transparent hover:bg-brand-card/50 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200">Call Us</a>
         </div>
-        <p class="text-slate-500 text-sm mt-8">Or email us at <a href="mailto:info@clumech.com" class="text-slate-400 hover:text-white hover:underline">info@clumech.com</a></p>
+        <p class="font-mono text-slate-500 text-sm mt-8">info@clumech.com · Bengaluru & Pune</p>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetSelector = btn.dataset.scrollTo;
+        if (!targetSelector) return;
+        const target = document.querySelector(targetSelector);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
