@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // GA4 event for a call-to-action click
       gtag('event', 'cta_click', {
-        'cta_name': ctaName, // e.g., 'Request Demo'
+        'cta_name': ctaName, // e.g., 'Request a Quote'
         'cta_location': ctaLocation, // e.g., 'Navbar' or 'Hero Section'
       });
     });
