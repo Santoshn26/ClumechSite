@@ -179,13 +179,44 @@ const seo = {
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <p class="font-heading text-label uppercase text-accent-orange mb-4">— OUR VALUES</p>
-        <h2 class="font-heading text-h2 gradient-text">Our Core Engineering Principles</h2>
+        <h2 class="font-heading text-h2 gradient-text">Built on Principles That Don't Bend</h2>
       </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div class="reveal hover-lift"><SystemCard title="1. Resilience Over Flash" description="We prioritize system uptime, durability, and fault tolerance over building flashy features that don't directly improve the bottom line of an operation." features={["Reliable Data Sources", "Simple, Robust UIs", "Offline-first Capabilities"]} isDark={true}/></div>
-        <div class="reveal delay-100 hover-lift"><SystemCard title="2. Absolute Precision" description="In heavy industry, a variance of millimeters or milliseconds matters. We design our tools to capture absolute truth, minimizing data drift." features={["Accurate Data Entry", "Automated Validation", "Clear Reporting"]} /></div>
-        <div class="reveal delay-200 hover-lift"><SystemCard title="3. Operators First" description="If a floor operator can't learn our system in 15 minutes, we've failed. We build intuitive UX that reduces cognitive load during high-stress situations." features={["High-contrast Interfaces", "One-touch Inputs", "Minimal Training Required"]} /></div>
+        <div class="reveal hover-lift">
+          <SystemCard 
+            title="Precision in Every Part" 
+            description="We hold ourselves to the same tolerances we manufacture to. Whether it's a gear component or a chip trolley, every piece that leaves our facility is built to the exact specification agreed with the client — no shortcuts." 
+            features={[
+              "Built to Drawing, Every Time",
+              "Quality Inspection Before Dispatch",
+              "Zero Compromise on Tolerances"
+            ]} 
+            isDark={true}
+          />
+        </div>
+        <div class="reveal delay-100 hover-lift">
+          <SystemCard 
+            title="Client-First Engineering" 
+            description="We don't push standard solutions onto non-standard problems. We visit your floor, understand your space and workflow, and fabricate what actually works — not what's easiest for us to make." 
+            features={[
+              "Custom Dimensions & Configurations",
+              "Floor Visit Before Fabrication",
+              "Solutions Around Your Workflow"
+            ]} 
+          />
+        </div>
+        <div class="reveal delay-200 hover-lift">
+          <SystemCard 
+            title="Reliability Over Everything" 
+            description="Industrial operations cannot afford supply failures. We manage our vendors, track our deliveries, and communicate proactively — so you never have to chase us for an update on your order." 
+            features={[
+              "48-Hour Quote Turnaround",
+              "Proactive Delivery Communication",
+              "Single Point of Contact"
+            ]} 
+          />
+        </div>
       </div>
     </div>
   </section>
