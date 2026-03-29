@@ -59,10 +59,10 @@ const seo = {
   </section>
 
   <!-- 3. Problem Section -->
-  <section id="platform" class="py-16 md:py-24 bg-light-bg text-light-text">
+  <section id="platform" class="py-16 md:py-24 bg-light-bg text-slate-900">
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <h2 class="font-heading text-h2 text-slate-900">Manufacturing Has No Room for Compromise</h2>
+        <h2 class="font-heading text-h2">Manufacturing Has No Room for Compromise</h2>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -82,16 +82,16 @@ const seo = {
   </section>
 
   <!-- 5. How It Works -->
-  <section class="py-16 md:py-24 bg-light-bg text-light-text">
+  <section class="py-16 md:py-24 bg-light-bg text-slate-900">
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <h2 class="font-heading text-h2 text-slate-900">Our Process</h2>
+        <h2 class="font-heading text-h2">Our Process</h2>
       </div>
       <div class="flex flex-col md:flex-row gap-8 md:gap-4 justify-between text-center md:text-left">
-        <div class="reveal"><StepProcess stepNumber="1" title="Share Requirement" description="Share your drawing or requirement with our engineering team."/></div>
-        <div class="reveal delay-100"><StepProcess stepNumber="2" title="Get Quote" description="Receive a detailed quote for fabrication or supply within 48 hours."/></div>
-        <div class="reveal delay-200"><StepProcess stepNumber="3" title="Execution" description="Manufacturing or fulfillment begins, tracked by our internal systems."/></div>
-        <div class="reveal delay-300"><StepProcess stepNumber="4" title="Delivery" description="Receive your order with a quality inspection certificate." isLast={true}/></div>
+        <div class="reveal"><StepProcess onLightBg={true} stepNumber="1" title="Share Requirement" description="Share your drawing or requirement with our engineering team."/></div>
+        <div class="reveal delay-100"><StepProcess onLightBg={true} stepNumber="2" title="Get Quote" description="Receive a detailed quote for fabrication or supply within 48 hours."/></div>
+        <div class="reveal delay-200"><StepProcess onLightBg={true} stepNumber="3" title="Execution" description="Manufacturing or fulfillment begins, tracked by our internal systems."/></div>
+        <div class="reveal delay-300"><StepProcess onLightBg={true} stepNumber="4" title="Delivery" description="Receive your order with a quality inspection certificate." isLast={true}/></div>
       </div>
     </div>
   </section>

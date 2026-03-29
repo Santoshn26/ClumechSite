@@ -13,9 +13,16 @@ export interface NavLink {
 }
 
 export interface Props {
+  /** The text to display as the logo in the navbar. Defaults to "BrandLogo". */
   logoText?: string;
+
+  /** An array of navigation links to display in the navbar. */
   links?: NavLink[];
+
+  /** The text for the main call-to-action button. Defaults to "Request Demo". */
   ctaText?: string;
+
+  /** The URL for the main call-to-action button. Defaults to "/demo". */
   ctaLink?: string;
 }
 
@@ -49,8 +56,8 @@ const {
           <a 
             href={link.href}
             class={isActive(link.href)
-              ? 'text-white border-b-2 border-accent-orange pb-0.5 font-medium text-sm'
-              : 'text-slate-400 hover:text-white transition-colors duration-150 text-sm'}
+              ? 'text-white border-b-2 border-accent-orange pb-0.5 font-medium text-sm active-glow'
+              : 'text-slate-400 hover:text-white transition-colors duration-150 text-sm font-medium border-b-2 border-transparent pb-0.5'}
           >
             {link.label}
           </a>
@@ -95,6 +102,37 @@ const {
     </div>
   </div>
 </header>
+
+<style>
+  .active-glow {
+    position: relative;
+  }
+  .active-glow::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px; /* Position it exactly where the 2px border is */
+    height: 2px;
+    background: transparent;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.8), 0 0 16px rgba(249, 115, 22, 0.6);
+    animation: pulse-glow 2.5s infinite ease-in-out;
+    z-index: -1;
+  }
+
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 6px rgba(249, 115, 22, 0.7), 0 0 12px rgba(249, 115, 22, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 12px rgba(249, 115, 22, 0.9), 0 0 24px rgba(249, 115, 22, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 6px rgba(249, 115, 22, 0.7), 0 0 12px rgba(249, 115, 22, 0.5);
+    }
+  }
+</style>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {

@@ -13,8 +13,8 @@ interface Props {
 }
 
 const {
-  companyName = "Clumech Systems",
-  description = "Industrial-grade operational software for modern manufacturing, logistics, and supply chain management.",
+  companyName = "Clumech LLP",
+  description = "Manufactures custom industrial components, manages vendor fulfillment, and supplies precision-grade consumables.",
   links = [
     { title: "Platform", items: [ { label: "Systems", href: "/systems" }, { label: "Solutions", href: "/#solutions" } ] },
     { title: "Company", items: [ { label: "About Us", href: "/about" }, { label: "Case Studies", href: "/case-studies" } ] },
@@ -29,20 +29,20 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
       <div class="col-span-2 md:col-span-1">
         <span class="font-heading font-bold text-xl text-brand-bright mb-4 block">{companyName}</span>
-        <p class="text-brand-muted max-w-sm text-sm leading-relaxed">{description}</p>
+        <p class="text-slate-400 max-w-sm text-sm leading-relaxed">{description}</p>
       </div>
       {links.map(group => (
         <div class="col-span-1">
           <h3 class="font-heading font-semibold text-brand-bright mb-4">{group.title}</h3>
           <ul class="space-y-3">
             {group.items.map(link => (
-              <li><a href={link.href} class="text-sm text-brand-muted hover:text-accent-orange transition-colors">{link.label}</a></li>
+              <li><a href={link.href} class="text-sm text-slate-400 hover:text-accent-orange transition-colors">{link.label}</a></li>
             ))}
           </ul>
         </div>
       ))}
     </div>
-    <div class="pt-8 border-t border-brand-border text-center text-sm text-brand-muted">
+    <div class="pt-8 border-t border-brand-border text-center text-sm text-slate-400">
       &copy; {currentYear} {companyName}. All rights reserved.
     </div>
   </div>
