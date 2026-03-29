@@ -13,9 +13,6 @@ export interface NavLink {
 }
 
 export interface Props {
-  /** The text to display as the logo in the navbar. Defaults to "BrandLogo". */
-  logoText?: string;
-
   /** An array of navigation links to display in the navbar. */
   links?: NavLink[];
 
@@ -27,7 +24,6 @@ export interface Props {
 }
 
 const {
-  logoText = "BrandLogo",
   links = [
     { label: "Platform", href: "/" },
     { label: "Products", href: "/services" },
@@ -46,8 +42,16 @@ const {
     <div class="flex justify-between items-center h-16">
       
       <!-- Logo -->
-      <div class="flex-shrink-0 flex items-center">
-        <a href="/" class="logo-link font-heading font-bold text-2xl tracking-tight text-brand-bright">{logoText}</a>
+      <div class="flex-shrink-0">
+        <a href="/" class="logo-link flex items-center gap-3">
+          <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-sm">
+            <img src="/clumech-logo.png" alt="Clumech LLP Logo" class="h-6 w-6 object-contain">
+        <a href="/" class="logo-link flex items-center">
+          <div class="w-9 h-9 bg-white rounded-lg flex items-center justify-center shadow-sm">
+            <img src="/clumech-logo.png" alt="Clumech LLP Logo" class="h-7 w-7 object-contain">
+          </div>
+          <span class="font-heading font-bold text-xl tracking-tight text-brand-bright hidden sm:inline">CLUMECH LLP</span>
+        </a>
       </div>
 
       <!-- Desktop Navigation -->
@@ -77,8 +81,8 @@ const {
       </nav>
 
       <!-- Mobile menu button -->
-      <div class="flex md:hidden items-center">
-        <button id="mobile-menu-btn" type="button" class="text-brand-bright hover:text-white focus:outline-none p-2" aria-label="Toggle menu">
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" type="button" class="text-brand-bright hover:text-white focus:outline-none p-2" aria-label="Toggle menu" aria-expanded="false">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -86,26 +90,66 @@ const {
       </div>
     </div>
   </div>
+</header>
 
-  <!-- Mobile Menu Panel -->
-  <div id="mobile-menu" class="fixed inset-0 top-16 z-40 bg-brand-navy/95 backdrop-blur-xl transform translate-x-full opacity-0 transition-all duration-300 ease-in-out md:hidden">
-    <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col">
-      {links.map(link => (
-        <a href={link.href} class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-brand-text hover:bg-brand-card hover:text-brand-bright transition-colors">
-          {link.label}
-        </a>
-      ))}
+<!-- Mobile Menu Panel (outside header for correct stacking context) -->
+<div 
+  id="mobile-menu"
+  class="fixed top-16 left-0 right-0 bottom-0 z-[60] md:hidden transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+  style="background: rgba(10, 15, 30, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"
+  aria-hidden="true"
+  role="dialog"
+>
+  <!-- Top border accent line -->
+  <div class="h-[1px] w-full" style="background: linear-gradient(90deg, transparent, rgba(249,115,22,0.5), transparent);"></div>
+
+  <!-- Menu content -->
+  <div class="px-6 py-8 flex flex-col gap-1">
+    
+    <!-- Nav links with stagger animation -->
+    {links.map((link, index) => (
       <a 
-        href={ctaLink} 
-        class="mobile-link block w-full text-center mt-4 bg-accent-orange hover:bg-accent-orangeHover text-white px-6 py-3 rounded-xl font-semibold text-base transition-colors shadow-cta-orange"
-        data-ga-cta={ctaText}
-        data-ga-location="Mobile Menu"
+        href={link.href}
+        class:list={[
+          'mobile-link flex items-center gap-3 px-4 py-4 rounded-xl text-base font-medium transition-all duration-200',
+          isActive(link.href)
+            ? 'bg-orange-500/10 text-white border border-orange-500/30'
+            : 'text-slate-300 hover:bg-white/5 hover:text-white border border-transparent'
+        ]}
+        style={`transition-delay: ${index * 60}ms`}
       >
-        {ctaText}
+        {/* Active indicator dot */}
+        {isActive(link.href) ? (
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" style="box-shadow: 0 0 6px rgba(249,115,22,0.8);"></span>
+        ) : (
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-600 flex-shrink-0"></span>
+        )}
+        {link.label}
       </a>
+    ))}
+
+    <!-- Divider -->
+    <div class="my-4 h-[1px] bg-white/10"></div>
+
+    <!-- CTA button -->
+    <a 
+      href={ctaLink}
+      class="mobile-link flex items-center justify-center gap-2 w-full py-4 px-6 rounded-xl font-semibold text-base text-white transition-all duration-200"
+      style={`background: linear-gradient(135deg, #F97316, #EA6C0A); box-shadow: 0 0 30px rgba(249,115,22,0.3); transition-delay: ${links.length * 60}ms;`}
+      data-ga-cta={ctaText}
+      data-ga-location="Mobile Menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h8m0 0l-4-4m4 4l-4 4"/></svg>
+      {ctaText}
+    </a>
+
+    <!-- Bottom info strip -->
+    <div class="mt-8 pt-6 border-t border-white/10">
+      <p class="text-slate-500 text-xs text-center font-mono tracking-wider">BENGALURU · PUNE · EST. 2021</p>
+      <p class="text-slate-600 text-xs text-center mt-1">info@clumech.com</p>
     </div>
   </div>
-</header>
+</div>
 
 <style>
   /* --- Accessibility --- */
@@ -202,28 +246,19 @@ const {
 
   /* --- Mobile Menu Effects --- */
 
-  /* EFFECT 5 — Mobile menu: slide + fade with stagger */
+  /* EFFECT 5 — Mobile menu: slide in from right */
   .mobile-menu-open {
-    opacity: 1;
     transform: translateX(0);
   }
   .mobile-link {
     opacity: 0;
-    transform: translateX(-12px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   .mobile-menu-open .mobile-link {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
-  /* Staggered delays */
-  .mobile-menu-open .mobile-link:nth-child(1) { transition-delay: 0.05s; }
-  .mobile-menu-open .mobile-link:nth-child(2) { transition-delay: 0.10s; }
-  .mobile-menu-open .mobile-link:nth-child(3) { transition-delay: 0.15s; }
-  .mobile-menu-open .mobile-link:nth-child(4) { transition-delay: 0.20s; }
-  .mobile-menu-open .mobile-link:nth-child(5) { transition-delay: 0.25s; }
-  .mobile-menu-open .mobile-link:nth-child(6) { transition-delay: 0.30s; }
-  .mobile-menu-open .mobile-link:nth-child(7) { transition-delay: 0.35s; }
 </style>
 
 <script is:inline>
@@ -233,21 +268,24 @@ const {
 
     // --- Mobile Menu Logic (EFFECT 5) ---
     const btn = header.querySelector('#mobile-menu-btn');
-    const menu = header.querySelector('#mobile-menu');
+    const menu = document.getElementById('mobile-menu'); // It's now a sibling
     const menuLinks = menu?.querySelectorAll('.mobile-link');
 
-    if (btn && menu) {
+    if (btn && menu && header) {
       const toggleMenu = () => {
-        const isCurrentlyOpen = menu.classList.contains('mobile-menu-open');
-        
-        // Toggle the state
-        menu.classList.toggle('mobile-menu-open');
-        document.body.classList.toggle('overflow-hidden', !isCurrentlyOpen);
+        const isOpen = menu.classList.toggle('mobile-menu-open');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        btn.setAttribute('aria-expanded', String(isOpen));
+        menu.setAttribute('aria-hidden', String(!isOpen));
       };
 
       btn.addEventListener('click', toggleMenu);
       // Close menu when a link is clicked
-      menuLinks?.forEach(link => link.addEventListener('click', toggleMenu));
+      menuLinks?.forEach(link => link.addEventListener('click', () => {
+        // Don't close for on-page hash links
+        if (link.getAttribute('href')?.startsWith('#')) return;
+        toggleMenu();
+      }));
     }
 
     // --- EFFECT 4: Navbar scroll effect ---

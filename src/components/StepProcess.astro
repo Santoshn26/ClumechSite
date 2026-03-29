@@ -19,11 +19,13 @@ const connectorColor = onLightBg ? 'border-slate-300' : 'border-brand-border';
 ---
 
 <div class="relative flex-1 text-center md:text-left">
-  <div class:list={["flex items-center justify-center w-12 h-12 rounded-full border-2 font-mono font-bold text-lg mb-4 mx-auto md:mx-0", borderColor, numberColor]}>
-    {stepNumber}
+  <div class:list={["relative z-10", onLightBg ? 'bg-light-bg' : 'bg-brand-surface', 'md:bg-transparent']}>
+    <div class:list={["flex items-center justify-center w-12 h-12 rounded-full border-2 font-mono font-bold text-lg mb-4 mx-auto md:mx-0", borderColor, numberColor]}>
+      {stepNumber}
+    </div>
+    <h3 class:list={["font-heading font-semibold text-xl mb-2", titleColor]}>{title}</h3>
+    <p class:list={["max-w-xs mx-auto md:mx-0", textColor]}>{description}</p>
   </div>
-  <h3 class:list={["font-heading font-semibold text-xl mb-2", titleColor]}>{title}</h3>
-  <p class:list={["max-w-xs mx-auto md:mx-0", textColor]}>{description}</p>
 
   <!-- Connector line for desktop -->
   { !isLast && 
@@ -31,6 +33,6 @@ const connectorColor = onLightBg ? 'border-slate-300' : 'border-brand-border';
   }
   <!-- Connector line for mobile -->
   { !isLast &&
-    <div class:list={["md:hidden absolute top-12 left-1/2 h-full border-l-2 border-dashed -translate-x-1/2", connectorColor]} style="height: calc(100% + 2rem);"></div>
+    <div class:list={["md:hidden absolute top-12 left-1/2 h-full border-l-2 border-dashed -translate-x-1/2 z-[-1]", connectorColor]} style="height: calc(100% + 2rem);"></div>
   }
 </div>
