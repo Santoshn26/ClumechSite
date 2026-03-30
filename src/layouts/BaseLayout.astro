@@ -50,18 +50,7 @@ const { seo } = Astro.props;
   </head>
   <body class="bg-brand-surface text-brand-text font-body antialiased min-h-screen flex flex-col">
     
-    <Navbar 
-      logoText="Clumech"
-      links={[
-        { label: "Platform", href: "/#platform" },
-        { label: "Systems", href: "/systems" },
-        { label: "Case Studies", href: "/case-studies" },
-        { label: "About", href: "/about" },
-        { label: "Contact", href: "/contact" }
-      ]}
-      ctaText="Request Demo"
-      ctaLink="/demo"
-    />
+    <Navbar />
 
     <!-- Main Content -->
     <main class="flex-grow w-full">

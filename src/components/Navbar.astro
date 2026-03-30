@@ -13,10 +13,10 @@ export interface NavLink {
 }
 
 export interface Props {
-  /** The text for the main call-to-action button. Defaults to "Request Demo". */
+  /** The text for the main call-to-action button. Defaults to "Request a Quote". */
   ctaText?: string;
 
-  /** The URL for the main call-to-action button. Defaults to "/demo". */
+  /** The URL for the main call-to-action button. Defaults to "/contact". */
   ctaLink?: string;
 }
 
@@ -39,23 +39,34 @@ const {
     <div class="flex justify-between items-center h-16">
       
       <!-- Logo -->
-      <div class="flex-shrink-0 flex items-center gap-4">
+      <div class="flex-shrink-0 flex items-center gap-3">
+    
+        <!-- Logo image -->
         <a href="/" class="logo-link flex items-center">
-          <div class="w-24 h-12 flex items-center justify-center bg-white rounded-lg shadow-sm">
+          <div class="w-20 h-10 sm:w-24 sm:h-12 flex 
+            items-center justify-center bg-white 
+            rounded-lg shadow-sm">
             <img 
               src="/images/clumech-logo.png" 
-              alt="Clumech LLP Logo" 
-              class="h-10 object-contain"
+              alt="Clumech LLP Logo"
+              class="h-8 sm:h-10 object-contain"
               loading="eager"
             >
           </div>
         </a>
-        <div class="hidden sm:flex items-center border-l border-brand-border/50 pl-4">
-          <p class="text-slate-400 text-xs font-medium tracking-wider leading-tight">
-            Designing Space.<br class="hidden lg:block">
+
+        <!-- Divider + tagline — visible on ALL screens -->
+        <div class="flex items-center 
+          border-l border-brand-border/50 pl-3 sm:pl-4">
+          <p class="text-slate-400 font-medium 
+            leading-tight
+            text-[10px] tracking-wide
+            sm:text-xs sm:tracking-wider">
+            Designing Space.<br>
             Delivering Solutions.
           </p>
         </div>
+
       </div>
 
       <!-- Desktop Navigation -->
