@@ -36,18 +36,28 @@ const {
 
 <header id="main-header" class="sticky top-0 z-50 w-full bg-brand-navy/80 backdrop-blur-lg border-b border-brand-border/50">
   <div class="max-w-[1200px] mx-auto px-6">
-    <div class="relative flex justify-between items-center h-16">
+    <div class="flex justify-between items-center h-16">
       
       <!-- Logo -->
-      <div class="flex-shrink-0">
+      <div class="flex-shrink-0 flex items-center gap-4">
         <a href="/" class="logo-link flex items-center">
           <div class="w-24 h-12 flex items-center justify-center bg-white rounded-lg shadow-sm">
-            <img src="/images/clumech-logo.png" alt="Clumech LLP Logo" class="h-10 object-contain">
+            <img 
+              src="/images/clumech-logo.png" 
+              alt="Clumech LLP Logo" 
+              class="h-10 object-contain"
+              loading="eager"
+            >
           </div>
         </a>
+        <div class="hidden sm:flex items-center border-l border-brand-border/50 pl-4">
+          <p class="text-slate-400 text-xs font-medium tracking-wider leading-tight">
+            Designing Space.<br class="hidden lg:block">
+            Delivering Solutions.
+          </p>
+        </div>
       </div>
 
-      <div class="hidden lg:block absolute left-1/2 -translate-x-1/2"><p class="text-slate-400 text-xs font-medium tracking-wider">Designing Space. Delivering Solutions.</p></div>
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8 items-center">
         {links.map(link => (
